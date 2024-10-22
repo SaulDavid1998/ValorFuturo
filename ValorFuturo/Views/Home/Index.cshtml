@@ -1,0 +1,52 @@
+﻿@model ValorFuturoModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        App valor futuro
+    </title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <header class="m-3">
+        <h1 >Calcular Valor Futuro</h1>
+    </header>
+
+    <div class="container">
+        <form asp-controller="Home" asp-action="Index" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="mb-3">
+                <label asp-for="InversionMensual" class="form-label"> Inversion Mensual</label>
+                <input asp-for="InversionMensual" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="InteresAnual" class="form-label">Interes Anual</label>
+                <input asp-for="InteresAnual" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="Años" class="form-label"> Años</label>
+                <input asp-for="Años" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Valor Futuro</label>
+                <input value="@ViewBag.ValorFuturo.ToString("c2")"  class="form-control" readonly />
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-12 mb-sm-2">
+                    <button type="submit" class="btn btn-primary w-100">Calcular</button>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary w-100">Limpiar</a>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
